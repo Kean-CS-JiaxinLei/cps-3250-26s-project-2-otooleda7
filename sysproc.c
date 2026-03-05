@@ -6,7 +6,6 @@
 #include "memlayout.h"
 #include "mmu.h"
 #include "proc.h"
-#include "shutdown.c"
 
 int
 sys_fork(void)
