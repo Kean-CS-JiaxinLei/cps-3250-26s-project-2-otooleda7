@@ -89,7 +89,6 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
-#include "x86.h"
 int shutdown(void)
 {
 outw(0xB004, 0x0|0x2000);
