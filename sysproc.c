@@ -6,6 +6,7 @@
 #include "memlayout.h"
 #include "mmu.h"
 #include "proc.h"
+#include "shutdown.c"
 
 int
 sys_fork(void)
@@ -88,4 +89,11 @@ sys_uptime(void)
   xticks = ticks;
   release(&tickslock);
   return xticks;
+}
+#include "x86.h"
+int shutdown(void)
+{
+outw(0xB004, 0x0|0x2000);
+outw(0x604, 0x0|0x2000);
+return 0;
 }
